@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SideBar extends StatefulWidget {
-  const SideBar({
-    Key? key,
-    required this.height,
-    required this.width,
-    /*required this.navigator*/
-  }) : super(key: key);
+  const SideBar(
+      {Key? key,
+      required this.height,
+      required this.width,
+      required this.navigator})
+      : super(key: key);
 
   final double height;
   final double width;
-  //final GlobalKey<NavigatorState> navigator;
+  final GlobalKey<NavigatorState> navigator;
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -47,8 +47,12 @@ class _SideBarState extends State<SideBar> {
                           sideBarIndex = index;
                         });
                         // navigate to the new screen
+                        widget.navigator.currentState!.pushNamed(
+                          menu[index]['routeName'],
+                        );
                       },
-                      style: TextButton.styleFrom(minimumSize: const Size(100, 50)),
+                      style: TextButton.styleFrom(
+                          minimumSize: const Size(100, 50)),
                       child: Text(
                         menu[index]['title'],
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(

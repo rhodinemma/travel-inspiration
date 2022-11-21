@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/side_bar.dart';
+import '../widgets/custom_header.dart';
 
 class ActivitiesScreen extends StatefulWidget {
   const ActivitiesScreen({Key? key}) : super(key: key);
@@ -14,16 +14,12 @@ class ActivitiesScreen extends StatefulWidget {
 class _ActivitiesScreenState extends State<ActivitiesScreen> {
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: const Color(0xFFF5EDDC),
-      body: Row(
-        children: [
-          SideBar(
-            width: width,
-            height: height,
-          ),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          SizedBox(height: 50),
+          CustomHeader(title: 'Activities'),
         ],
       ),
     );

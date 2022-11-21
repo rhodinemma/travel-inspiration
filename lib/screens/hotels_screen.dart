@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_header.dart';
+
 class HotelsScreen extends StatefulWidget {
   const HotelsScreen({Key? key}) : super(key: key);
 
@@ -11,6 +13,14 @@ class HotelsScreen extends StatefulWidget {
 class _HotelsScreenState extends State<HotelsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          SizedBox(height: 50),
+          CustomHeader(title: 'Hotels'),
+        ],
+      ),
+    );
   }
 }
