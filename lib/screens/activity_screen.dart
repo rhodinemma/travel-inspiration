@@ -62,14 +62,17 @@ class _ActivitiesMasonryGrid extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context)=> ActivityDetailsScreen(activity: activity)));
           },
           child: Column(children: [
-            Container(
-                height: masonryCardHeights[index % 3],
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    image: DecorationImage(
-                      image: NetworkImage(activity.imageUrl),
-                      fit: BoxFit.cover,
-                    ))),
+            Hero(
+              tag: '${activity.id}_${activity.title}',
+              child: Container(
+                  height: masonryCardHeights[index % 3],
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      image: DecorationImage(
+                        image: NetworkImage(activity.imageUrl),
+                        fit: BoxFit.cover,
+                      ))),
+            ),
             const SizedBox(height: 10),
             Text(
               activity.title,
